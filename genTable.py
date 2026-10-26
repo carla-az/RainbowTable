@@ -59,5 +59,5 @@ def generateRT(width, length):
     return
 
 start_time = time.time()
-generateRT(188000, 12000)
+generateRT(94000, 24000)
 print(time.time()-start_time)
