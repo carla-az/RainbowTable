@@ -51,7 +51,7 @@ def generateRT(width, length):
         reduceMasks.append(random.choices(range(32), k=10))
     with open("reduceMasks.pkl", "wb") as f:
         pickle.dump(reduceMasks, f)
-    with open("rainbow_table.txt", "a") as f:
+    with open("rainbow_table.txt", "w") as f:
         for i in range(length):
             start=reduce(myHash(str(i)), [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]) #start is a pseudo-random word from the dictionary
             end=computeEnd(start, reduceMasks)
@@ -59,6 +59,5 @@ def generateRT(width, length):
     return
 
 start_time = time.time()
-for _ in range(2):
-    generateRT(10000, 10000)
-print((time.time() - start_time)/2)
+generateRT(188000, 12000)
+print(time.time()-start_time)
